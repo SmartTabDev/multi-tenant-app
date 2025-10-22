@@ -26,6 +26,20 @@ Route::middleware('auth')->group(function () {
     // Role-based routes
     Route::prefix('admin')->middleware('role:admin')->group(function () {
         Route::get('/', [AdminController::class, 'index'])->name('admin.dashboard');
+        
+        // Team Management
+        Route::get('/teams', [AdminController::class, 'teams'])->name('admin.teams');
+        Route::get('/teams/create', [AdminController::class, 'createTeam'])->name('admin.teams.create');
+        Route::post('/teams', [AdminController::class, 'storeTeam'])->name('admin.teams.store');
+        Route::get('/teams/{team}/edit', [AdminController::class, 'editTeam'])->name('admin.teams.edit');
+        Route::put('/teams/{team}', [AdminController::class, 'updateTeam'])->name('admin.teams.update');
+        Route::delete('/teams/{team}', [AdminController::class, 'destroyTeam'])->name('admin.teams.destroy');
+        
+        // User Management
+        Route::get('/users', [AdminController::class, 'users'])->name('admin.users');
+        Route::get('/users/{user}/edit', [AdminController::class, 'editUser'])->name('admin.users.edit');
+        Route::put('/users/{user}', [AdminController::class, 'updateUser'])->name('admin.users.update');
+        Route::delete('/users/{user}', [AdminController::class, 'destroyUser'])->name('admin.users.destroy');
     });
     
     Route::prefix('team-admin')->middleware('role:team_admin')->group(function () {

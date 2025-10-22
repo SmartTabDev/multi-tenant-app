@@ -20,7 +20,7 @@
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-sm font-medium text-blue-300">Teams</p>
-                        <p class="mt-2 text-3xl font-bold text-white">0</p>
+                        <p class="mt-2 text-3xl font-bold text-white">{{ \App\Models\Team::count() }}</p>
                     </div>
                     <div class="bg-blue-600 rounded-full p-3">
                         <svg class="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -36,7 +36,7 @@
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-sm font-medium text-green-300">Users</p>
-                        <p class="mt-2 text-3xl font-bold text-white">0</p>
+                        <p class="mt-2 text-3xl font-bold text-white">{{ \App\Models\User::count() }}</p>
                     </div>
                     <div class="bg-green-600 rounded-full p-3">
                         <svg class="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -52,7 +52,7 @@
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-sm font-medium text-purple-300">Products</p>
-                        <p class="mt-2 text-3xl font-bold text-white">0</p>
+                        <p class="mt-2 text-3xl font-bold text-white">{{ \App\Models\Product::count() }}</p>
                     </div>
                     <div class="bg-purple-600 rounded-full p-3">
                         <svg class="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -68,7 +68,7 @@
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-sm font-medium text-orange-300">Categories</p>
-                        <p class="mt-2 text-3xl font-bold text-white">0</p>
+                        <p class="mt-2 text-3xl font-bold text-white">{{ \App\Models\Category::count() }}</p>
                     </div>
                     <div class="bg-orange-600 rounded-full p-3">
                         <svg class="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">

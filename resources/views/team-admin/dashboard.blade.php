@@ -26,7 +26,7 @@
                         </div>
                     </div>
                     <h3 class="text-sm font-bold text-emerald-700 uppercase tracking-wide mb-2">Team Users</h3>
-                    <p class="text-4xl font-bold text-gray-900 mb-1">0</p>
+                    <p class="text-4xl font-bold text-gray-900 mb-1">{{ auth()->user()->team ? auth()->user()->team->users->count() : 0 }}</p>
                     <p class="text-sm text-gray-600">Users in your team</p>
                 </div>
             </div>
@@ -42,7 +42,7 @@
                         </div>
                     </div>
                     <h3 class="text-sm font-bold text-teal-700 uppercase tracking-wide mb-2">Products</h3>
-                    <p class="text-4xl font-bold text-gray-900 mb-1">0</p>
+                    <p class="text-4xl font-bold text-gray-900 mb-1">{{ auth()->user()->team ? auth()->user()->team->products->count() : 0 }}</p>
                     <p class="text-sm text-gray-600">Products in your team</p>
                 </div>
             </div>
@@ -58,7 +58,7 @@
                         </div>
                     </div>
                     <h3 class="text-sm font-bold text-cyan-700 uppercase tracking-wide mb-2">Categories</h3>
-                    <p class="text-4xl font-bold text-gray-900 mb-1">0</p>
+                    <p class="text-4xl font-bold text-gray-900 mb-1">{{ \App\Models\Category::count() }}</p>
                     <p class="text-sm text-gray-600">Product categories</p>
                 </div>
             </div>

@@ -24,7 +24,7 @@
                         </svg>
                     </div>
                     <h3 class="text-xs font-bold text-purple-700 uppercase tracking-widest mb-2">My Products</h3>
-                    <p class="text-5xl font-black text-gray-900 mb-2">0</p>
+                    <p class="text-5xl font-black text-gray-900 mb-2">{{ auth()->user()->products->count() }}</p>
                     <p class="text-sm text-purple-600 font-medium">Products I created</p>
                 </div>
             </div>
@@ -38,7 +38,7 @@
                         </svg>
                     </div>
                     <h3 class="text-xs font-bold text-pink-700 uppercase tracking-widest mb-2">Team Products</h3>
-                    <p class="text-5xl font-black text-gray-900 mb-2">0</p>
+                    <p class="text-5xl font-black text-gray-900 mb-2">{{ auth()->user()->team ? auth()->user()->team->products->count() : 0 }}</p>
                     <p class="text-sm text-pink-600 font-medium">All team products</p>
                 </div>
             </div>
@@ -52,7 +52,7 @@
                         </svg>
                     </div>
                     <h3 class="text-xs font-bold text-fuchsia-700 uppercase tracking-widest mb-2">Categories</h3>
-                    <p class="text-5xl font-black text-gray-900 mb-2">0</p>
+                    <p class="text-5xl font-black text-gray-900 mb-2">{{ \App\Models\Category::count() }}</p>
                     <p class="text-sm text-fuchsia-600 font-medium">Available categories</p>
                 </div>
             </div>

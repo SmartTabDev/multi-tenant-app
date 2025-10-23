@@ -65,5 +65,19 @@ Route::middleware('auth')->group(function () {
     
     Route::prefix('team-user')->middleware('role:team_user')->group(function () {
         Route::get('/', [TeamUserController::class, 'index'])->name('team-user.dashboard');
+        
+        // Product Viewing
+        Route::get('/products', [TeamUserController::class, 'products'])->name('team-user.products');
+        
+        // My Products (own products only)
+        Route::get('/my-products', [TeamUserController::class, 'myProducts'])->name('team-user.my-products');
+        Route::get('/my-products/create', [TeamUserController::class, 'createProduct'])->name('team-user.my-products.create');
+        Route::post('/my-products', [TeamUserController::class, 'storeProduct'])->name('team-user.my-products.store');
+        Route::get('/my-products/{product}/edit', [TeamUserController::class, 'editProduct'])->name('team-user.my-products.edit');
+        Route::put('/my-products/{product}', [TeamUserController::class, 'updateProduct'])->name('team-user.my-products.update');
+        Route::delete('/my-products/{product}', [TeamUserController::class, 'destroyProduct'])->name('team-user.my-products.destroy');
+        
+        // Categories (read-only)
+        Route::get('/categories', [TeamUserController::class, 'categories'])->name('team-user.categories');
     });
 });

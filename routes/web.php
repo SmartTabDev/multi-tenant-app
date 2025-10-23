@@ -44,6 +44,23 @@ Route::middleware('auth')->group(function () {
     
     Route::prefix('team-admin')->middleware('role:team_admin')->group(function () {
         Route::get('/', [TeamAdminController::class, 'index'])->name('team-admin.dashboard');
+        
+        // Team User Management
+        Route::get('/users', [TeamAdminController::class, 'users'])->name('team-admin.users');
+        Route::get('/users/{user}/edit', [TeamAdminController::class, 'editUser'])->name('team-admin.users.edit');
+        Route::put('/users/{user}', [TeamAdminController::class, 'updateUser'])->name('team-admin.users.update');
+        Route::delete('/users/{user}', [TeamAdminController::class, 'removeUser'])->name('team-admin.users.remove');
+        
+        // Product Management
+        Route::get('/products', [TeamAdminController::class, 'products'])->name('team-admin.products');
+        Route::get('/products/create', [TeamAdminController::class, 'createProduct'])->name('team-admin.products.create');
+        Route::post('/products', [TeamAdminController::class, 'storeProduct'])->name('team-admin.products.store');
+        Route::get('/products/{product}/edit', [TeamAdminController::class, 'editProduct'])->name('team-admin.products.edit');
+        Route::put('/products/{product}', [TeamAdminController::class, 'updateProduct'])->name('team-admin.products.update');
+        Route::delete('/products/{product}', [TeamAdminController::class, 'destroyProduct'])->name('team-admin.products.destroy');
+        
+        // Categories (read-only)
+        Route::get('/categories', [TeamAdminController::class, 'categories'])->name('team-admin.categories');
     });
     
     Route::prefix('team-user')->middleware('role:team_user')->group(function () {
